@@ -9,17 +9,15 @@ public class Storage<T> {
         storage = new HashSet<>();
     }
 
-    void insert(T ob){
+    public void insert(T ob){
         storage.add(ob);
     }
 
-    void remove(T ob){
+    public void remove(T ob){
         storage.remove(ob);
     }
 
-    void show(){
-        storage.forEach((s) -> {
-            System.out.println(s.toString());
-        });
+    public void show(){
+        storage.forEach((s) -> System.out.println(s.toString()));
     }
 }

@@ -3,9 +3,7 @@ package com.infinite.PracticeWork;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ReaderStudent {
-    private Student student;
-    private StringTokenizer token;
+class ReaderStudent {
     private String path;
 
     ReaderStudent(String path){
@@ -14,9 +12,7 @@ public class ReaderStudent {
 
     void read(Storage<Student> storage) {
         String line;
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(
-                        new FileInputStream(path), "UTF-8"))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream(path), "UTF-8"))) {
             while ((line = br.readLine()) != null) {
                 storage.insert(fabricStudent(line));
             }
@@ -29,12 +25,12 @@ public class ReaderStudent {
         }
     }
 
-    Student fabricStudent(String infoStudent){
-        token = new StringTokenizer(infoStudent," ");
-        student = new Student();
+    static Student fabricStudent(String infoStudent){
+        StringTokenizer token = new StringTokenizer(infoStudent," ");
+        Student student  = new Student();
         student.setGroup(token.nextToken());
-        student.setLastName(token.nextToken());
         student.setFirstName(token.nextToken());
+        student.setLastName(token.nextToken());
         student.setDate(token.nextToken());
         return student;
     }

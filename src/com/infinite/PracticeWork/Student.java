@@ -14,29 +14,25 @@ public class Student {
     private String lastName;
     private Date date;
 
+    public Student(){}
+
     public Student(String group, String firstName, String lastName, String dateS){
         this.group = group;
         this.firstName = firstName;
         this.lastName = lastName;
         setDate(dateS);
-
-
-    }
-
-    public Student(){
-
     }
 
     @Override
     public String toString(){
-        return group + " " + firstName + " " + lastName + " " + dateFormat.format(date);
+        String space = " "; // Какой смысл три раза создавать одну и ту же строчку, если можно сделать так
+        return group + space + firstName + space + lastName + space + dateFormat.format(date);
     }
 
 
     public String getGroup() {
         return group;
     }
-
     public void setGroup(String group) {
         this.group = group;
     }
@@ -44,7 +40,6 @@ public class Student {
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -52,7 +47,6 @@ public class Student {
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -61,7 +55,6 @@ public class Student {
     public Date getDate() {
         return date;
     }
-
     public void setDate(String dateS) {
         try {
             this.date = dateFormat.parse(dateS);
